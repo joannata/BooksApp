@@ -110,7 +110,7 @@
             thisBooksList.filters.push(clickedElement.value);
           } else {
             const indexOfValue = thisBooksList.filters.indexOf(clickedElement.value);
-            thisBooksList.filters.splice(indexOfValue);
+            thisBooksList.filters.splice(indexOfValue, 1);
           }
         }
 
@@ -124,7 +124,7 @@
 
       for(let book of thisBooksList.data){
         let shouldBeHidden;
-        const filterOfHiddenBooks = document.querySelector('.book__image[data-id="book.id"]');
+        const filterOfHiddenBooks = document.querySelector('.book__image[data-id="' + book.id + '"]');
 
         for(const filter of thisBooksList.filters){
           if(!book.details[filter]){
@@ -159,7 +159,7 @@
     }
   }
 
-  const app = new BooksList;
+  const app = new BooksList();
 
   app;
 }
